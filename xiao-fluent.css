@@ -8,7 +8,8 @@
     font-size: 14px;
 }
 
-body, .title-text {
+body,
+.title-text {
     background-color: white;
     font-family: "Inter", "思源黑体 CN";
     color: rgb(12, 12, 12);
@@ -22,7 +23,8 @@ body, .title-text {
     padding-bottom: 100px;
 }
 
-#write>ul:first-child, #write>ol:first-child {
+#write>ul:first-child,
+#write>ol:first-child {
     margin-top: 30px;
 }
 
@@ -30,7 +32,12 @@ a.md-inner-link {
     color: #3b78e7;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     position: relative;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -49,31 +56,42 @@ h1, h2, h3, h4, h5, h6 {
     font-feature-settings: "tnum";
 }
 
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
     text-decoration: none;
 }
 
-h1 tt, h1 code {
+h1 tt,
+h1 code {
     font-size: inherit;
 }
 
-h2 tt, h2 code {
+h2 tt,
+h2 code {
     font-size: inherit;
 }
 
-h3 tt, h3 code {
+h3 tt,
+h3 code {
     font-size: inherit;
 }
 
-h4 tt, h4 code {
+h4 tt,
+h4 code {
     font-size: inherit;
 }
 
-h5 tt, h5 code {
+h5 tt,
+h5 code {
     font-size: inherit;
 }
 
-h6 tt, h6 code {
+h6 tt,
+h6 code {
     font-size: inherit;
 }
 
@@ -126,11 +144,17 @@ h6 {
     font-size: 1em;
 }
 
-p, blockquote, ul, ol, dl, table {
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
     margin: 0.8em 0;
 }
 
-li>ol, li>ul {
+li>ol,
+li>ul {
     margin: 0 0;
 }
 
@@ -148,15 +172,18 @@ li p.first {
     display: inline-block;
 }
 
-ul, ol {
+ul,
+ol {
     padding-left: 30px;
 }
 
-ul:first-child, ol:first-child {
+ul:first-child,
+ol:first-child {
     margin-top: 0;
 }
 
-ul:last-child, ol:last-child {
+ul:last-child,
+ol:last-child {
     margin-bottom: 0;
 }
 
@@ -177,7 +204,9 @@ blockquote code {
     background-color: transparent;
 }
 
-h2:hover:before, h1:hover:before, h3:hover:before {
+h2:hover:before,
+h1:hover:before,
+h3:hover:before {
     content: "#";
     width: 0px;
     position: absolute;
@@ -200,7 +229,8 @@ table tr {
     padding: 0;
 }
 
-table tr:nth-child(2n), thead {
+table tr:nth-child(2n),
+thead {
     background-color: #f8f8f8;
 }
 
@@ -218,11 +248,13 @@ table tr td {
     padding: 6px 13px;
 }
 
-table tr th:first-child, table tr td:first-child {
+table tr th:first-child,
+table tr td:first-child {
     margin-top: 0;
 }
 
-table tr th:last-child, table tr td:last-child {
+table tr th:last-child,
+table tr td:last-child {
     margin-bottom: 0;
 }
 
@@ -237,7 +269,8 @@ table tr th:last-child, table tr td:last-child {
     box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .22), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18)!important;
 }
 
-code, tt {
+code,
+tt {
     border-radius: 4px;
     padding: 2px 4px 0px 4px;
     font-size: 0.9em;
@@ -253,7 +286,6 @@ code {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-
 
 mark {
     background-color: inherit;
@@ -286,21 +318,67 @@ del {
 .md-task-list-item>input {
     margin-left: -1.3em;
 }
-.md-br-content .md-raw-inline{
+
+.md-br-content .md-raw-inline {
     opacity: 0.5;
 }
 
-@media print {
+@media print,
+(overflow-block: paged) or (overflow-block: optional-paged) {
+    /* Move top-level headings to a new page on the right-hand side: */
+    h1 {
+        page-break-before: right;
+        /* CSS 2 */
+        break-before: recto;
+        /* CSS 3+, 
+also works for languages written and paginated right-to-left */
+    }
+    /* Override the previous ruleset for the very first heading: */
+    h1:first-of-type,
+    section>h1:first-child {
+        page-break-before: avoid;
+        /* CSS 2 */
+        break-before: avoid;
+        /* CSS 3+ */
+    }
+    /* Force second-level headings to begin in a new column or
+possiblyon a new page if it was in the last of multiple columns otherwise: */
+    h2 {
+        break-before: column;
+    }
+    /* Headings should not be the last paragraph on a page: */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+    }
+    /* Consecutive headings with deepening level should not be split across pages: */
+    h1+h2,
+    h2+h3,
+    h3+h4,
+    h4+h5,
+    h5+h6 {
+        page-break-before: avoid;
+    }
     html {
-        font-size: 13px;
+        font-size: 10px;
         background-color: white;
         line-height: 3!important;
     }
     body {
         margin-top: 24px!important;
         margin-bottom: 24px!important;
+        margin-left: 12em!important;
+        font-family: "Inter", "思源黑体 CN";
     }
-    table, pre {
+    img {
+        width: 50%;
+    }
+    table,
+    pre {
         page-break-inside: avoid;
     }
     pre {
@@ -313,7 +391,9 @@ del {
         padding-bottom: 8px;
         padding-right: 4px;
     }
-    a>span>code, a>code, a code {
+    a>span>code,
+    a>code,
+    a code {
         background-color: #3b78e718!important;
     }
     a {
@@ -322,13 +402,6 @@ del {
     }
     .md-plain {
         line-height: 3!important;
-    }
-    .page-break {
-        page-break-after: always;
-        break-after: page;
-    }
-    .page-break:before {
-        content: none
     }
     code {
         font-variant-ligatures: common-ligatures!important;
@@ -355,20 +428,23 @@ del {
     margin-top: 8px;
 }
 
+
 /* h1 strong, h2 strong, h3 strong, h4 strong, h6 strong, .md-toc strong{
-    font-weight: 800;
-    border-radius: 4px;
-    background-color: #f1f3f4;
+font-weight: 800;
+border-radius: 4px;
+background-color: #f1f3f4;
 } */
 
-.md-p a, a.md-toc-inner {
+.md-p a,
+a.md-toc-inner {
     color: #3b78e7!important;
     text-decoration: none!important;
     border-bottom: 2px solid #3b78e700;
     transition: all 0.16s;
 }
 
-.md-p a:hover, a.md-toc-inner:hover {
+.md-p a:hover,
+a.md-toc-inner:hover {
     color: #3b78e7!important;
     text-decoration: none!important;
     border-bottom: 2px solid #3b78e7;
@@ -381,7 +457,9 @@ del {
     font-family: 'Jetbrains Mono';
 }
 
-a>span>code, a>code, a code {
+a>span>code,
+a>code,
+a code {
     color: #3b78e7!important;
     text-decoration: none!important;
     background-color: #3b78e718!important;
@@ -479,17 +557,22 @@ a>span>code, a>code, a code {
     border-width: 1px;
 }
 
+
 /** focus mode */
 
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header, .context-menu, .megamenu-content, footer {
+header,
+.context-menu,
+.megamenu-content,
+footer {
     font-family: "Inter", "思源黑体 CN";
 }
 
-.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state {
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
     visibility: visible;
 }
 
@@ -544,7 +627,8 @@ header, .context-menu, .megamenu-content, footer {
     border: none!important;
 }
 
-.ty-footer, .sidebar-footer {
+.ty-footer,
+.sidebar-footer {
     backdrop-filter: saturate(180%) blur(20px) brightness(1.1);
     border: none!important;
     background: none;
@@ -595,7 +679,8 @@ header, .context-menu, .megamenu-content, footer {
     color: #0f0f0f;
 }
 
-#footer-word-count-info, #spell-check-panel {
+#footer-word-count-info,
+#spell-check-panel {
     border: none!important;
     background-color: #ffffff!important;
     box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .22), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18)!important;
@@ -609,7 +694,9 @@ content {
     font-family: "FontAwesome";
 }
 
-blockquote>h4, blockquote>h5, blockquote>h6 {
+blockquote>h4,
+blockquote>h5,
+blockquote>h6 {
     font-size: 1em;
     columns: inherit;
 }
@@ -667,11 +754,14 @@ blockquote>h6::before {
     opacity: 0
 }
 
-.cm-keyword, .cm-variable-3, .cm-tag {
+.cm-keyword,
+.cm-variable-3,
+.cm-tag {
     color: #3b78e7!important
 }
 
-.cm-def, .cm-attribute {
+.cm-def,
+.cm-attribute {
     color: #9c27b0!important
 }
 
