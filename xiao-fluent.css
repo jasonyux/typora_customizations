@@ -222,6 +222,7 @@ blockquote blockquote {
 table {
     padding: 0;
     word-break: initial;
+    margin: auto; /* for vscode adaptation */
 }
 
 table tr {
