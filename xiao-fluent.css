@@ -9,7 +9,7 @@ body,
 .title-text {
     background-color: white;
     font-family: var(--font-family);
-    font-size: 16px;
+    /* font-size: 1.1em; customize this inside your editor */
     font-weight: normal;
     word-wrap: break-word;
     color: rgb(12, 12, 12);
