@@ -1,17 +1,16 @@
 :root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
-    --monospace: "Jetbrains Mono", "思源黑体 CN";
-}
-
-.title-text {
-    font-size: 14px;
+    --monospace: "Victor Mono", "思源黑体 CN";
+    --font-family: "Titillium Web", "思源黑体 CN";
 }
 
 body,
 .title-text {
     background-color: white;
-    font-family: "Inter", "思源黑体 CN";
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: normal;
     word-wrap: break-word;
     color: rgb(12, 12, 12);
     line-height: 1.6;
@@ -97,7 +96,7 @@ h6 code {
 }
 
 h1 {
-    font-family: "Inter", "思源黑体 CN";
+    font-family: var(--font-family);
     padding-bottom: .1em;
     font-size: 2.25em;
     line-height: 1.5;
@@ -136,7 +135,7 @@ h5 strong {
     text-align: center;
     line-height: 24px;
     padding: 0;
-    font-family: Inter;
+    font-family: var(--font-family);
     font-feature-settings: "tnum" 0;
     border-radius: 3px;
 }
@@ -197,7 +196,7 @@ blockquote {
     border-radius: 4px;
     padding: 12px 16px;
     background-color: #e8ffeb;
-    font-family: '思源宋体 CN';
+    font-family: var(--font-family);
     color: #252d34;
 }
 
@@ -276,12 +275,12 @@ tt {
     border-radius: 4px;
     padding: 2px 4px 0px 4px;
     font-size: 0.9em;
-    font-family: 'Jetbrains Mono', '思源黑体 CN';
+    font-family: var(--monospace);
 }
 
 code {
     color: #6f65fc;
-    font-weight: 600;
+    font-weight: normal;
     background-color: #f4f7f8;
     padding-left: 4px;
     padding-right: 4px;
@@ -292,7 +291,7 @@ code {
 mark {
     background-color: inherit;
     color: #b5302e;
-    font-weight: 800;
+    font-weight: 500;
 }
 
 del {
@@ -373,7 +372,7 @@ possiblyon a new page if it was in the last of multiple columns otherwise: */
     body {
         margin-top: 24px!important;
         margin-bottom: 24px!important;
-        font-family: "Inter", "思源黑体 CN";
+        font-family: var(--font-family);
     }
     table,
     pre {
@@ -452,7 +451,7 @@ a.md-toc-inner:hover {
 .md-content.md-url {
     color: #05685b!important;
     text-decoration: none!important;
-    font-family: 'Jetbrains Mono';
+    font-family: var(--monospace);
 }
 
 a>span>code,
@@ -479,7 +478,8 @@ a code {
     border-radius: 4px;
     padding: 12px;
     font-size: 0.9em;
-    font-family: 'Jetbrains Mono', '思源黑体 CN';
+    font-family: var(--monospace);
+    font-weight: 500;
 }
 
 #write pre.md-meta-block {
@@ -560,13 +560,6 @@ a code {
 
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
-}
-
-header,
-.context-menu,
-.megamenu-content,
-footer {
-    font-family: "Inter", "思源黑体 CN";
 }
 
 .file-node-content:hover .file-node-icon,
@@ -689,6 +682,7 @@ content {
 }
 
 @font-face {
+    src: local("Victor Mono");
     font-family: "FontAwesome";
 }
 
